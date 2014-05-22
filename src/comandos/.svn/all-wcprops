@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/4/trunk/src/comandos
+END
+CriarLoginBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/4/trunk/src/comandos/CriarLoginBean.java
+END
+CriarNovoTopicoForumBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/4/trunk/src/comandos/CriarNovoTopicoForumBean.java
+END
+VisualizarTopicoDeForumBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/4/trunk/src/comandos/VisualizarTopicoDeForumBean.java
+END
+AdicionarNovaResenhaBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/4/trunk/src/comandos/AdicionarNovaResenhaBean.java
+END
+EfetuarLoginBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/4/trunk/src/comandos/EfetuarLoginBean.java
+END
+VerForumBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/4/trunk/src/comandos/VerForumBean.java
+END
+VerResenhasBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/4/trunk/src/comandos/VerResenhasBean.java
+END

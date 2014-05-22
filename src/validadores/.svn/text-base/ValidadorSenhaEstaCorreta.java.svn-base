@@ -1,0 +1,43 @@
+package validadores;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.Validator;
+import javax.faces.validator.ValidatorException;
+
+public class ValidadorSenhaEstaCorreta implements Validator
+{
+
+	@Override
+	public void validate(FacesContext arg0, UIComponent arg1, Object arg2)
+			throws ValidatorException 
+	{
+		String campoEscrito = (String) arg2;
+		if((campoEscrito.contains("0") || campoEscrito.contains("1") ||
+		   campoEscrito.contains("2") || campoEscrito.contains("3") ||
+		   campoEscrito.contains("4") || campoEscrito.contains("5") ||
+		   campoEscrito.contains("6") || campoEscrito.contains("7") ||
+		   campoEscrito.contains("8") || campoEscrito.contains("9")) == false)
+		{
+			//o campo nao contem numeros, entao devemos apresentar uma mensagem de erro
+			FacesMessage mensagemErro = new FacesMessage();
+			mensagemErro.setDetail("senha não contém números");
+			mensagemErro.setSummary("senha não contém números");
+			mensagemErro.setSeverity(FacesMessage.SEVERITY_ERROR);
+			throw new ValidatorException(mensagemErro);
+		}
+		else if(campoEscrito.length() < 8)
+		{
+			FacesMessage mensagemErro = new FacesMessage();
+			mensagemErro.setDetail("senha não contém 8 caracteres");
+			mensagemErro.setSummary("senha não contém 8 caracteres");
+			mensagemErro.setSeverity(FacesMessage.SEVERITY_ERROR);
+			throw new ValidatorException(mensagemErro);
+		}
+		
+		
+	}
+	
+
+}

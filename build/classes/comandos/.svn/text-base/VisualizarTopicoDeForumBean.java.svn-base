@@ -1,0 +1,58 @@
+package comandos;
+
+import java.util.LinkedList;
+import java.util.Map;
+
+import javax.faces.context.FacesContext;
+
+import allaboutmybook.ComentarioDeForum;
+import allaboutmybook.GerenteAtividadesDoForum;
+import allaboutmybook.GerenteConcretoAtividadesForum;
+import allaboutmybook.TopicoDeForum;
+
+public class VisualizarTopicoDeForumBean 
+{
+	private String tituloTopicodeForum;
+	private String descricaoTopicoDeForum;
+	private LinkedList<ComentarioDeForum> comentariosDoTopicoDeForum;
+	
+	
+	
+	public void setTituloTopicodeForum(String tituloTopicodeForum) {
+		this.tituloTopicodeForum = tituloTopicodeForum;
+	}
+
+	public String getTituloTopicodeForum() {
+		return tituloTopicodeForum;
+	}
+
+	public String getDescricaoTopicoDeForum() {
+		return descricaoTopicoDeForum;
+	}
+	
+	public LinkedList<ComentarioDeForum> getComentariosDoTopicoDeForum() {
+		return comentariosDoTopicoDeForum;
+	}
+
+	public String visualizarTopicoDeForum()
+	{
+		Map<String, String> parametrosDoMetodo = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		String tituloTopicoDoForum = parametrosDoMetodo.get("tituloTopico");
+		GerenteAtividadesDoForum gerenteDeAtividadesDoForum = GerenteConcretoAtividadesForum.getInstance();
+		TopicoDeForum topicoDeForumParaVisualizar = gerenteDeAtividadesDoForum.pegarTopicoDeForumParaVisualizacao(tituloTopicoDoForum);
+		if(topicoDeForumParaVisualizar != null)
+		{
+			this.tituloTopicodeForum = topicoDeForumParaVisualizar.getTituloTopicodeForum();
+			this.descricaoTopicoDeForum = topicoDeForumParaVisualizar.getDescricaoTopicoDeForum();
+			this.comentariosDoTopicoDeForum = topicoDeForumParaVisualizar.getComentariosDoTopicoDeForum();
+			return "realizouVisualizarTopicoDeForum";
+		}
+		else
+		{
+			System.out.println("falhouVisualizarTopicoDeForum");
+			return "falhouVisualizarTopicoDeForum";
+		}
+		
+	}
+
+}

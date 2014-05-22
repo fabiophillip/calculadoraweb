@@ -1,0 +1,43 @@
+package comandos;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+import excecoes.ChaveJaExisteException;
+import allaboutmybook.GerenteAtividadesDoForum;
+import allaboutmybook.GerenteConcretoAtividadesForum;
+
+public class CriarNovoTopicoForumBean 
+{
+	private String tituloTopicoForum;
+	private String descricaoTopicoForum;
+	public String getTituloTopicoForum() {
+		return tituloTopicoForum;
+	}
+	public void setTituloTopicoForum(String tituloTopicoForum) {
+		this.tituloTopicoForum = tituloTopicoForum;
+	}
+	public String getDescricaoTopicoForum() {
+		return descricaoTopicoForum;
+	}
+	public void setDescricaoTopicoForum(String descricaoTopicoForum) {
+		this.descricaoTopicoForum = descricaoTopicoForum;
+	}
+	
+	public String criarNovoTopicoDeForum()
+	{
+		GerenteAtividadesDoForum gerenteDeAtividadesDoForum = GerenteConcretoAtividadesForum.getInstance();
+		try 
+		{
+			gerenteDeAtividadesDoForum.criarNovoTopicoDeForum(tituloTopicoForum, descricaoTopicoForum);
+		} 
+		catch (ChaveJaExisteException chaveJahExiste) 
+		{
+			FacesMessage mensagemErroCriarTopicoForum = new FacesMessage("já existe um tópico com esse título. Escolha outro título");
+			FacesContext.getCurrentInstance().addMessage("já existe em tópico com esse título. Escolha outro título", mensagemErroCriarTopicoForum);
+			return "falhouCriarNovoTopicoForum";
+		}
+		return "completouCriarNovoTopicoForum";
+	}
+
+}

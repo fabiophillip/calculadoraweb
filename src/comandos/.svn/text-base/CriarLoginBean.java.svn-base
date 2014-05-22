@@ -1,0 +1,44 @@
+package comandos;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+import excecoes.ChaveJaExisteException;
+import allaboutmybook.GerenteConcretoLogin;
+import allaboutmybook.GerenteLogin;
+
+public class CriarLoginBean 
+{
+	private String usuario;
+	private String senha;
+	
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
+	public String criarLogin()
+	{
+		GerenteLogin gerenciaLogins = GerenteConcretoLogin.getInstance();
+		try
+		{
+			gerenciaLogins.criarLogin(this.usuario, this.senha);
+			return "successCriarLogin";
+		}
+		catch(ChaveJaExisteException exc)
+		{
+			FacesMessage mensagemDeErro = new FacesMessage("já existe um usuário com esse nome, por favor escolha outro");
+			FacesContext.getCurrentInstance().addMessage("já existe um usuário com esse nome, por favor escolha outro", mensagemDeErro);
+			return "failureCriarLogin";
+		}
+	}
+
+}
