@@ -1,5 +1,7 @@
 package comandos;
 
+import tutorial.Calculadora;
+
 
 
 
@@ -62,23 +64,24 @@ public class FazerCalculoBean
 
 	public String fazercalculo()
 	{
-		float numero1Float = Float.valueOf(this.numero1);
-		float numero2Float = Float.valueOf(this.numero2);
+		Calculadora calculadora = new Calculadora();
+		int numero1Float = Integer.valueOf(this.numero1);
+		int numero2Float = Integer.valueOf(this.numero2);
 		if(this.operacao.compareTo("soma") == 0)
 		{
-			this.resultado = numero1Float + numero2Float;
+			this.resultado = calculadora.somar(numero1Float, numero2Float);
 		}
 		else if(this.operacao.compareTo("subtracao") == 0)
 		{
-			this.resultado = numero1Float - numero2Float;
+			this.resultado = calculadora.subtrair(numero1Float, numero2Float);
 		}
 		else if(this.operacao.compareTo("multiplicacao") == 0)
 		{
-			this.resultado = numero1Float * numero2Float;
+			this.resultado = calculadora.multiplicar(numero1Float, numero2Float);
 		}
 		else if(this.operacao.compareTo("divisao") == 0)
 		{
-			this.resultado = numero1Float / numero2Float;
+			this.resultado = calculadora.dividir(numero1Float, numero2Float);
 		}
 		
 		

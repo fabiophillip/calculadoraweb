@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>CalculadoraWeb</groupId>
   <artifactId>CalculadoraWeb</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>CalculadoraWeb</name>
   <url>http://maven.apache.org</url>
@@ -146,7 +146,7 @@
 		<artifactId>javassist</artifactId>
 		<version>3.9.0.GA</version>
 	</dependency>
-	<dependency>
+	<!--<dependency>
 		<groupId>org.glassfish</groupId>
 		<artifactId>javax.faces</artifactId>
 		<version>2.1.7</version>
@@ -156,11 +156,11 @@
 		<artifactId>javax.servlet.jsp.jstl</artifactId>
 		<version>1.2.1</version>
 	</dependency>
-	<dependency>
+	<dependency> 
 		<groupId>javax.sql</groupId>
 		<artifactId>jdbc-stdext</artifactId>
 		<version>2.0</version>
-	</dependency>
+	</dependency> -->
 	<dependency>
 		<groupId>javax.transaction</groupId>
 		<artifactId>jta</artifactId>
@@ -190,7 +190,7 @@
 	<!-- falharam: hibernate-jbosscache e jta -->
 	
 	<!-- novos mojarra -->
-	<dependency>
+	<!-- <dependency>
         <groupId>com.sun.faces</groupId>
         <artifactId>jsf-api</artifactId>
         <version>2.1.2</version>
@@ -202,7 +202,7 @@
         <artifactId>jsf-impl</artifactId>
         <version>2.1.2</version>
         <scope>compile</scope>
-    </dependency>
+    </dependency>-->
     
     <!-- Tomcat 7 Deploy -->
 	<dependency>
@@ -216,7 +216,14 @@
     	<groupId>javax</groupId>
     	<artifactId>javaee-api</artifactId>
     	<version>6.0</version>
-    	<scope>compile</scope>
+    	<scope>provided</scope>
+	</dependency>
+	
+	<!-- projeto calculadora -->
+	<dependency>
+	<groupId>P.A.Project</groupId>
+  	<artifactId>CalculadoraLib</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
 	</dependency>
   </dependencies>
 </project>
