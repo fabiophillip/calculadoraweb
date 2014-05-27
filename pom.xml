@@ -230,7 +230,7 @@
 	
 	<!-- projeto calculadora -->
 	<dependency>
-	<groupId>P.A.Project</groupId>
+	<groupId>com.github.fabiophillip</groupId>
   	<artifactId>CalculadoraLib</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
 	</dependency>
