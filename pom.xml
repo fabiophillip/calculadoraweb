@@ -20,6 +20,7 @@
     	<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-war-plugin</artifactId>
+			<version>2.4</version>
 			<configuration>
 				<webResources>
 					<resource>
@@ -37,7 +38,7 @@
 		</plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
+        <version>2.3.2</version>
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
@@ -50,6 +51,25 @@
    		<artifactId>appengine-maven-plugin</artifactId>
    		<version>1.9.4</version>
 	</plugin>
+	
+	<!-- assembly -->
+	  <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <outputDirectory>src/zip</outputDirectory>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                    <descriptors>
+                        <descriptor>src/main/webapp/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+    </plugin>
       
     </plugins>
   </build>
@@ -201,25 +221,20 @@
 	 <dependency>
         <groupId>com.sun.faces</groupId>
         <artifactId>jsf-api</artifactId>
-        <version>2.1.2</version>
+        <version>2.1.7</version>
         <scope>compile</scope>
     </dependency>
 
     <dependency>
         <groupId>com.sun.faces</groupId>
         <artifactId>jsf-impl</artifactId>
-        <version>2.1.2</version>
+        <version>2.1.7</version>
         <scope>compile</scope>
     </dependency>
     
     <!-- Tomcat 7 Deploy -->
 	
-	<dependency>
-    	<groupId>javax.servlet.jsp.jstl</groupId>
-    	<artifactId>jstl-api</artifactId>
-    	<version>1.2</version>
-    	<scope>provided</scope>
-	</dependency> 
+	
 	<!-- JavaEE -->
 	 <dependency>
     	<groupId>javax</groupId>
@@ -227,6 +242,14 @@
     	<version>6.0</version>
     	<scope>provided</scope>
 	</dependency> 
+	
+	 <!--  necessário pra google app engine -->
+	 <dependency>
+		<groupId>com.sun.el</groupId>
+		<artifactId>el-ri</artifactId>
+		<version>1.0</version>
+	</dependency>
+	 
 	
 	<!-- projeto calculadora -->
 	<dependency>
