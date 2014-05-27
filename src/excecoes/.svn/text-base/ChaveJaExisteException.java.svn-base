@@ -1,8 +1,0 @@
-package excecoes;
-
-/*caso o usuario tente inserir um novo conteudo no site(resenha ou topico do forum) cuja
- * chave informada ja esteja em uso no hashmap, essa ececao eh lancada*/
-public class ChaveJaExisteException extends Exception
-{
-	
-}

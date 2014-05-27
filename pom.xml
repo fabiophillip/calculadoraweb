@@ -43,6 +43,14 @@
           <target>1.7</target>
         </configuration>
       </plugin>
+      
+      <!-- novo google app engine -->
+	<plugin>
+   		<groupId>com.google.appengine</groupId>
+   		<artifactId>appengine-maven-plugin</artifactId>
+   		<version>1.9.4</version>
+	</plugin>
+      
     </plugins>
   </build>
   
@@ -190,7 +198,7 @@
 	<!-- falharam: hibernate-jbosscache e jta -->
 	
 	<!-- novos mojarra -->
-	<!-- <dependency>
+	 <dependency>
         <groupId>com.sun.faces</groupId>
         <artifactId>jsf-api</artifactId>
         <version>2.1.2</version>
@@ -202,22 +210,23 @@
         <artifactId>jsf-impl</artifactId>
         <version>2.1.2</version>
         <scope>compile</scope>
-    </dependency>-->
+    </dependency>
     
     <!-- Tomcat 7 Deploy -->
+	
 	<dependency>
     	<groupId>javax.servlet.jsp.jstl</groupId>
     	<artifactId>jstl-api</artifactId>
     	<version>1.2</version>
     	<scope>provided</scope>
-	</dependency>
+	</dependency> 
 	<!-- JavaEE -->
-	<dependency>
+	 <dependency>
     	<groupId>javax</groupId>
     	<artifactId>javaee-api</artifactId>
     	<version>6.0</version>
     	<scope>provided</scope>
-	</dependency>
+	</dependency> 
 	
 	<!-- projeto calculadora -->
 	<dependency>
@@ -225,5 +234,8 @@
   	<artifactId>CalculadoraLib</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
 	</dependency>
+	
+	
+	
   </dependencies>
 </project>
